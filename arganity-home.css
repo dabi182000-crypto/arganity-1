@@ -20,8 +20,72 @@
 	--arg-max: 1280px;
 }
 
-/* Google Fonts loaded via <link> fallback — self-host later for speed. */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ============================================================
+   TOP HEADER / NAV BAR
+   ============================================================ */
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
+
+.arg-topbar {
+	background: #fff;
+	border-bottom: 1px solid rgba(43,31,20,0.08);
+	padding: 0 40px;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 2px 12px rgba(43,31,20,0.06);
+}
+
+.arg-topbar__inner {
+	max-width: 1280px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+}
+
+.arg-topbar__logo img {
+	height: 52px;
+	width: auto;
+	display: block;
+}
+
+.arg-topbar__nav {
+	display: flex;
+	align-items: center;
+	gap: 38px;
+}
+
+.arg-topbar__nav a {
+	font-family: "Inter", system-ui, sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #2B1F14;
+	text-decoration: none;
+	transition: color 150ms ease;
+}
+
+.arg-topbar__nav a:hover {
+	color: #C9A26B;
+}
+
+.arg-topbar__icons {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+	font-size: 18px;
+	color: #2B1F14;
+	cursor: pointer;
+}
 
 /* ---------- Reset-ish within our scope ---------- */
 .arg-main,
@@ -55,29 +119,32 @@
 /* ---------- Shared button ---------- */
 .arg-btn {
 	display: inline-block;
-	padding: 14px 34px;
-	font-family: var(--arg-sans);
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: 0.15em;
+	padding: 15px 40px;
+	font-family: "Inter", system-ui, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.2em;
 	text-transform: uppercase;
-	border: 1px solid var(--arg-espresso);
+	border: 1.5px solid #2B1F14;
 	background: transparent;
-	color: var(--arg-espresso);
+	color: #2B1F14 !important;
 	cursor: pointer;
+	text-decoration: none;
 	transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+	line-height: 1;
 }
 
 .arg-btn--dark {
-	background: var(--arg-espresso);
-	color: var(--arg-cream);
+	background: #2B1F14 !important;
+	color: #F5EEE1 !important;
+	border-color: #2B1F14;
 }
 
 .arg-btn--dark:hover,
 .arg-btn--dark:focus {
-	background: var(--arg-gold-dk);
-	border-color: var(--arg-gold-dk);
-	color: #fff;
+	background: #A6814C !important;
+	border-color: #A6814C !important;
+	color: #fff !important;
 }
 
 /* ============================================================
@@ -85,101 +152,87 @@
    ============================================================ */
 .arg-hero {
 	background: var(--arg-cream);
-	padding: 60px 24px 80px;
+	padding: 0;
+	overflow: hidden;
 }
 
 .arg-hero__inner {
-	max-width: var(--arg-max);
-	margin: 0 auto;
+	max-width: 100%;
+	margin: 0;
 	display: grid;
-	grid-template-columns: 1fr 1.1fr;
-	gap: 40px;
-	align-items: center;
+	grid-template-columns: 1fr 1.35fr;
+	min-height: 520px;
 }
 
 .arg-hero__copy {
-	padding: 40px 20px 40px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 70px 60px 70px 80px;
+	background: var(--arg-cream);
 }
 
 .arg-hero__eyebrow {
-	font-family: var(--arg-sans);
-	font-size: 13px;
-	letter-spacing: 0.35em;
+	font-family: "Inter", system-ui, sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.45em;
 	text-transform: uppercase;
 	color: var(--arg-gold-dk);
-	margin: 0 0 14px;
-	font-weight: 600;
+	margin: 0 0 18px;
+	font-weight: 700;
 }
 
 .arg-hero__title {
-	font-family: var(--arg-serif);
+	font-family: "Cormorant Garamond", Georgia, serif;
 	font-weight: 500;
-	font-size: clamp(54px, 7vw, 96px);
+	font-size: clamp(56px, 6vw, 88px);
 	line-height: 0.95;
 	margin: 0 0 28px;
 	color: var(--arg-espresso);
 }
 
 .arg-hero__text {
-	font-size: 16px;
-	max-width: 460px;
+	font-size: 15px;
+	max-width: 400px;
 	margin: 0 0 22px;
 	color: #443a2d;
+	line-height: 1.65;
 }
 
 .arg-hero__code {
-	font-size: 14px;
-	letter-spacing: 0.08em;
-	margin: 0 0 30px;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+	margin: 0 0 36px;
 	text-transform: uppercase;
+	font-weight: 500;
 }
 
 .arg-hero__code span {
 	display: inline-block;
 	background: var(--arg-yellow);
-	padding: 4px 12px;
-	font-weight: 700;
-	margin-left: 4px;
+	padding: 5px 14px;
+	font-weight: 800;
+	margin-left: 6px;
+	font-family: "Inter", system-ui, sans-serif;
+	letter-spacing: 0.15em;
 }
 
 .arg-hero__media {
 	position: relative;
-	min-height: 420px;
+	overflow: hidden;
 }
 
 .arg-hero__media img {
 	width: 100%;
 	height: 100%;
-	max-height: 520px;
 	object-fit: cover;
 	display: block;
+	min-height: 520px;
 }
 
+/* Badge is already baked into banner-hero.jpeg — hide the HTML duplicate */
 .arg-hero__badge {
-	position: absolute;
-	top: 30px;
-	right: 30px;
-	width: 110px;
-	height: 110px;
-	border-radius: 50%;
-	background: var(--arg-yellow);
-	color: var(--arg-espresso);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	font-family: var(--arg-serif);
-	font-size: 14px;
-	line-height: 1.15;
-	letter-spacing: 0.06em;
-	box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-.arg-hero__badge strong {
-	display: block;
-	font-size: 18px;
-	margin-top: 2px;
-	letter-spacing: 0.1em;
+	display: none;
 }
 
 /* ============================================================
@@ -528,24 +581,26 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-	.arg-hero__inner     { grid-template-columns: 1fr; }
-	.arg-hero__media     { order: -1; min-height: 320px; }
-	.arg-hero__copy      { padding: 20px 10px; text-align: center; }
-	.arg-hero__text      { margin-left: auto; margin-right: auto; }
-
-	.arg-grid            { grid-template-columns: repeat(2, 1fr); }
+	.arg-hero__inner         { grid-template-columns: 1fr; }
+	.arg-hero__media         { order: -1; min-height: 340px; }
+	.arg-hero__media img     { min-height: 340px; }
+	.arg-hero__copy          { padding: 50px 40px; text-align: center; align-items: center; }
+	.arg-hero__text          { margin-left: auto; margin-right: auto; text-align: left; }
+	.arg-grid                { grid-template-columns: repeat(2, 1fr); }
 	.arg-testimonials__grid,
-	.arg-footer__inner   { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+	.arg-footer__inner       { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+	.arg-topbar              { padding: 0 24px; }
+	.arg-topbar__nav         { gap: 22px; }
 }
 
-@media (max-width: 600px) {
-	.arg-hero            { padding: 36px 18px 48px; }
-	.arg-hero__title     { font-size: 54px; }
-	.arg-tabs__inner     { gap: 24px; }
-	.arg-tab             { font-size: 16px; }
-	.arg-grid            { grid-template-columns: 1fr; }
-	.arg-testimonials    { padding: 60px 20px 70px; }
-	.arg-testimonials__grid { grid-template-columns: 1fr; gap: 50px; }
-	.arg-footer__inner   { grid-template-columns: 1fr; gap: 30px; }
-	.arg-hero__badge     { width: 88px; height: 88px; font-size: 11px; top: 16px; right: 16px; }
+@media (max-width: 768px) {
+	.arg-topbar__nav         { display: none; }
+	.arg-hero__copy          { padding: 40px 28px; }
+	.arg-hero__title         { font-size: 54px; }
+	.arg-tabs__inner         { gap: 24px; }
+	.arg-tab                 { font-size: 16px; }
+	.arg-grid                { grid-template-columns: 1fr; }
+	.arg-testimonials        { padding: 60px 20px 70px; }
+	.arg-testimonials__grid  { grid-template-columns: 1fr; gap: 50px; }
+	.arg-footer__inner       { grid-template-columns: 1fr; gap: 30px; }
 }
